@@ -13,6 +13,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
+import javax.validation.constraints.NotNull;
 import java.io.File;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -155,7 +156,31 @@ public class UserController {
             model.addAttribute("contact", contact);
         }
             return "normal/contact_details";
+    }
 
+    //Delete Contact Handler
+    @GetMapping("/delete/{cid}")
+    public String deleteContact(@PathVariable("cid") Integer cId, Model model, HttpSession session){
+
+        Optional<Contact> contactOptional = this.contactRepository.findById(cId);
+//        Contact contact = contactOptional.get();
+        System.out.println("CID " +cId);
+
+        Contact contact = this.contactRepository.findById(cId).get();
+
+
+        //check...
+        System.out.println("Contact "+ contact.getcId());
+
+        contact.setUser(null);
+
+        this.contactRepository.delete(contact);
+
+//        session.setAttribute("message", new Message("Contact deleted Successfully", "success"));
+
+        model.addAttribute("success" , "Contact Deleted Successfully");
+
+        return "redirect:/user/show-contacts";
     }
 
 }
