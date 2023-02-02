@@ -133,10 +133,14 @@ public class UserController {
         List<Contact> contacts =  this.contactRepository.findContactsByUser(user.getId());
 
         m.addAttribute("contacts", contacts);
-
-
-
         return "normal/show_contacts";
+    }
+
+//    Showing particular contact details
+    @RequestMapping("/{cId}/contact")
+    public String showContactDetail(@PathVariable("cId") Integer cId){
+        System.out.println("CID " + cId);
+        return "normal/contact_details";
     }
 
 }

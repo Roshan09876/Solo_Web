@@ -83,7 +83,7 @@
                             <span th:text="${c.name}"></span>
                         </td>
                         <td>
-                            <a href="#" th:href="@{'/user/contact/ '+c.cId}" >
+                            <a href="#" th:href="@{'/user/'+${c.cId}+'/contact'}" >
 
                                 <span th:text="${c.email}">
 
