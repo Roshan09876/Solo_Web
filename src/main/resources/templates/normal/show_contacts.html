@@ -82,7 +82,15 @@
                             <img src="" class="my_profile_picture" th:src="@{'/img/'+${c.image}}" alt="Profile Image  " />
                             <span th:text="${c.name}"></span>
                         </td>
-                        <td th:text="${c.email}">khadkaroshan715@gmail.com</td>
+                        <td>
+                            <a href="#" th:href="@{'/user/contact/ '+c.cId}" >
+
+                                <span th:text="${c.email}">
+
+                                </span>
+
+                            </a>
+                        </td>
                         <td th:text="${c.phone}">12345678</td>
                         <td>
                             <button class="btn btn-primary btn-sm">Update</button>
