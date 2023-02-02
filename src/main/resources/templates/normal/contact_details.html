@@ -26,9 +26,6 @@
             <li class="nav-item active">
                 <a class="nav-link" th:href="@{/}" href="#">Home <span class="sr-only">(current)</span></a>
             </li>
-            <!--            <li class="nav-item">-->
-            <!--                <a class="nav-link" th:href="@{/about}" href="#">About Website</a>-->
-            <!--            </li>-->
 
             <!--            <li class="nav-item">-->
             <!--                <a class="nav-link " th:text="${user.name}" href="#"></a>-->
@@ -65,7 +62,7 @@
 
         <div class="card mr-3 ml-3">
 
-            <div class="card-body" }>
+            <div class="card-body">
 
 
                 <div class="container text-center">
@@ -102,7 +99,7 @@
                     </div>
 
                     <div class="container mt-5">
-                        <button class="btn btn-primary btn-sm btn-block">Update</button>
+                        <a th:href="@{'/user/delete/' + ${c.cId}" class="btn btn-primary btn-sm btn-block">Update</a>
                         <button class="btn btn-danger btn-sm btn-block">Delete</button>
 
                     </div>
