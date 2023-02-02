@@ -139,12 +139,18 @@ public class UserController {
 
 //    Showing particular contact details
     @RequestMapping("/{cId}/contact")
-    public String showContactDetail(@PathVariable("cId") Integer cId, Model model){
+    public String showContactDetail(@PathVariable("cId") Integer cId, Model model, Principal principal){
 
         System.out.println("CID " + cId);
 
         Optional<Contact> contactOptional = this.contactRepository.findById(cId);
         Contact contact = contactOptional.get();
+
+//        To show the all the contacts individually to login User
+        String userName = principal.getName();
+        User user = this.userRepository.getUserByUserName(userName);
+
+
 
         model.addAttribute("contact", contact);
 
