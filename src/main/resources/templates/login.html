@@ -1,0 +1,200 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <link rel="stylesheet" th:href="@{/css/style.css}"/>
+    <title th:text="${title}" >SignIn page</title>
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="#">Contact Manager</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav ml-auto text-uppercase">
+            <li class="nav-item active">
+                <a class="nav-link" th:href="@{/}" href="#">Home <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" th:href="@{/about}" href="#">About us</a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link " th:href="@{/signin}" href="#">Login</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link " th:href="@{/signup}" href="#">Sign Up</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+<!--<section class="Laptop">-->
+<!--    <div id="login">-->
+<!--        <div class="container">-->
+<!--            <div id="login-row" class="row justify-content-center align-items-center">-->
+<!--                <div id="login-column" class="col-md-6">-->
+<!--                    <div id="login-box" class="col-md-12">-->
+<!--                        <form id="login-form" class="form" th:action="@{/dologin}" action="#" method="post">-->
+<!--                            <h3 class="text-center text-info">Login</h3>-->
+<!--&lt;!&ndash;                            Showing error or Success message in Login Form&ndash;&gt;-->
+<!--                            <div th:if="${param.error}" class="alert alert-danger">-->
+<!--                                Invalid Username and Password-->
+<!--                            </div>-->
+<!--                            <div th:if="${param.logout}" class="alert alert-success">-->
+<!--                                Success...You have been Logout!!-->
+<!--                            </div>-->
+<!--                            <div class="form-group">-->
+<!--                                <label for="username" class="text-info">Username:</label><br>-->
+<!--                                <input type="text" name="username" id="username" class="form-control">-->
+<!--                            </div>-->
+<!--                            <div class="form-group">-->
+<!--                                <label for="password" class="text-info">Password:</label><br>-->
+<!--                                <input type="password" name="password" id="password" class="form-control">-->
+<!--                            </div>-->
+<!--                            <div class="form-group">-->
+<!--                                <label for="remember-me" class="text-info"><span>Remember me</span> <span><input id="remember-me" name="remember-me" type="checkbox"></span></label><br>-->
+<!--                                <input type="submit" name="submit" class="btn btn-info btn-md" value="submit">-->
+<!--                            </div>-->
+<!--                            <div id="register-link" class="text-right">-->
+<!--                                <a href="#" th:href="@{/signup}" class="text-info">Register here</a>-->
+<!--                            </div>-->
+<!--                        </form>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--</section>-->
+<div class="row d-flex justify-content-center align-items-center h-100">
+    <div class="col-md-9 col-lg-6 col-xl-6 my-lg-5 py-lg-5">
+        <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/draw2.webp" class="img-fluid" alt="Sample image">
+    </div>
+    <div class="col-md-8 col-lg-6 col-xl-5 offset-xl-1 my-lg-5 py-lg-5">
+        <form id="login-form" class="form" th:action="@{/dologin}" action="#" method="post">
+            <div th:if="${param.error}" class="alert alert-danger">
+                Invalid Username and Password
+            </div>
+            <div th:if="${param.logout}" class="alert alert-success">
+                Success...You have been Logout!!
+            </div>
+            <div class="d-flex flex-row align-items-center justify-content-center justify-content-lg-start">
+                <p class="lead fw-normal mb-0 me-3">Sign in</p>
+            </div>
+
+            <div class="divider d-flex align-items-center my-4">
+
+            </div>
+
+
+            <!-- Email input -->
+            <div class="form-outline mb-4">
+                <input type="email" id="form3Example3" name="username" class="form-control form-control-lg" placeholder="Enter a valid email address" fdprocessedid="moutjo">
+                <label class="form-label" for="form3Example3" style="margin-left: 0px;">Email address</label>
+                <div class="form-notch"><div class="form-notch-leading" style="width: 9px;"></div><div class="form-notch-middle" style="width: 88.8px;"></div><div class="form-notch-trailing"></div></div></div>
+
+            <!-- Password input -->
+            <div class="form-outline mb-3">
+                <input type="password" id="form3Example4" name="password" class="form-control form-control-lg" placeholder="Enter password" fdprocessedid="ulbiyo">
+                <label class="form-label" for="form3Example4" style="margin-left: 0px;">Password</label>
+                <div class="form-notch"><div class="form-notch-leading" style="width: 9px;"></div><div class="form-notch-middle" style="width: 64px;"></div><div class="form-notch-trailing"></div></div></div>
+
+            <div class="d-flex justify-content-between align-items-center">
+                <!-- Checkbox -->
+                <div class="form-check mb-0">
+                    <input class="form-check-input me-2" type="checkbox" value="" id="form2Example3">
+                    <label class="form-check-label" for="form2Example3">
+                        Remember me
+                    </label>
+                </div>
+                <a href="#!" class="text-body">Forgot password?</a>
+            </div>
+
+            <div class="text-center text-lg-start mt-4 pt-2">
+                <div class="form-group">
+                      <input type="submit" name="submit" class="btn btn-info btn-md" value="Login">
+                </div>
+                <p class="small fw-bold mt-2 pt-1 mb-0">Don't have an account? <a href="#!" th:href="@{/signup}" class="link-danger">Register</a></p>
+            </div>
+
+        </form>
+    </div>
+</div>
+<div class="d-flex flex-column flex-md-row text-center text-md-start justify-content-between py-4 px-4 px-xl-5 bg-primary">
+    <!-- Copyright -->
+    <div class="text-white mb-3 mb-md-0">
+        Copyright © 2020. All rights reserved.
+    </div>
+    <!-- Copyright -->
+
+    <!-- Right -->
+    <div>
+        <a href="#!" class="text-white me-4">
+            <i class="fab fa-facebook-f"></i>
+        </a>
+        <a href="#!" class="text-white me-4">
+            <i class="fab fa-twitter"></i>
+        </a>
+        <a href="#!" class="text-white me-4">
+            <i class="fab fa-google"></i>
+        </a>
+        <a href="#!" class="text-white">
+            <i class="fab fa-linkedin-in"></i>
+        </a>
+    </div>
+    <!-- Right -->
+</div>
+<footer class="pt-4 my-md-5 pt-md-5 border-top pl-5">
+    <div class="row">
+        <div class="col-12 col-md">
+            <img class="mb-2" src="h.jpg" alt="" width="24" height="24">
+            <small class="d-block mb-3 text-muted">© 2022-2024</small>
+        </div>
+        <div class="col-6 col-md">
+            <h5>Features</h5>
+            <ul class="list-unstyled text-small">
+                <li>User-Friendly site</li>
+                <li>Easy to login</li>
+                <li>Readable and Understandable</li>
+
+            </ul>
+        </div>
+        <div class="col-6 col-md">
+            <h5>Resources</h5>
+            <ul class="list-unstyled text-small">
+                <li>Faciliated</li>
+                <li>Room-Service</li>
+                <li>Free Wi-fi Service</li>
+                <li>Another resource</li>
+                <li>Final resource</li>
+                <li>Washing-Machine</li>
+                <li>Geyser</li>
+            </ul>
+        </div>
+        <div class="col-6 col-md">
+            <h5>About-us</h5>
+            <ul class="list-unstyled text-small">
+                <li><a class="text-muted" href="#">Owner</a></li>
+                <li><a class="text-muted" href="https://www.facebook.com/roshan.khadka.395017/" target="_blank">Co-Owner</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</footer>
+
+<!-- Optional JavaScript -->
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+<script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
+</body>
+</html>
+

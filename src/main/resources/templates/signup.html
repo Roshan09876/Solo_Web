@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <link rel="stylesheet" th:href="@{/css/style.css}"/>
+    <title th:text="${title}" >Signup page</title>
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="#">Contact Manager</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav ml-auto text-uppercase">
+            <li class="nav-item active">
+                <a class="nav-link" th:href="@{/}" href="#">Home <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" th:href="@{/about}" href="#">About us</a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link" th:href="@{/signin}" href="#">Login</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link " th:href="@{/signup}" href="#">Sign Up</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+
+<section class="Roshan">
+    <div class="container">
+        <div class="row">
+<!--            Shifting grid by using offset-->
+            <div class="col-md-8 offset-md-2">
+<!--                For Styling  purpose-->
+                <div class="my-card mt-2">
+                    <div th:if="${message}" class="alert alert-primary" role="alert">
+                        <p class="text-center" th:text="${message}"></p>
+<!--                        <th:block th:text="${#session.removeAttribute('message')}" ></th:block>-->
+                    </div>
+                    <div th:if="${errormessage}" class="alert alert-danger" role="alert">
+                        <p class="text-center" th:text="${errormessage}"></p>
+<!--                        <th:block th:text="${#session.removeAttribute('message')}" ></th:block>-->
+                    </div>
+                    <div class="container text-center">
+                        <img class="" style="width: 70px" src=""th:src="@{/img/register.png}" alt="" />
+
+                    </div>
+                    <h1 class="text-center">Register Here!!</h1>
+<!--                    Since user is variable so keeping it with dollar symbol-->
+                    <form novalidate action="" th:action="@{/do_register}" method="post" th:object="${user}">
+
+<!--                        Form/name Field-->
+                        <div class="form-group">
+                            <label for="name_field">Your Name</label>
+                            <input  type="text" name="name" class="form-control"id="name_field"  placeholder="Enter you name" required th:value="${user.name}">
+                            <div th:if="${result1}"class="alert alert-danger" role="alert">
+                                <p th:text="*{result1}"></p>
+                            </div>
+
+                        </div>
+<!--For name form to pass invalid-->
+
+
+<!--                        For email Field-->
+                        <div class="form-group">
+                            <label for="email_field">Email address</label>
+                            <input type="email" name="email" class="form-control" id="email_field" aria-describedby="emailHelp" placeholder="Enter email" required th:value="${user.email}">
+                            <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                        </div>
+                        <div class="form-group">
+                            <label for="password_field">Your Password</label>
+                            <input name="password" type="password" class="form-control" id="password_field" aria-describedby="emailHelp" placeholder="Enter your password" required>
+                        </div>
+
+<!--                        About Field-->
+                        <div class="form-group">
+                            <textarea name="about" th:value="${user.about}" placeholder="Enter Something about Yourself" rows="7" class="form-control"></textarea>
+                        </div>
+<!--                        Terms and Condition agreement-->
+                        <div class="form-group form-check text-center">
+                            <input type="checkbox" name="agreement" class="form-check-input" id="agreement"/>
+                            <label for="agreement">Accept terms and conditions</label>
+                        </div>
+
+                        <div class="button">
+                            <button type="submit" class="btn bg-primary text-white">Submit</button>
+                            <button type="reset" class="btn btn-warning text-white">Reset</button>
+                        </div>
+                        </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+<footer class="pt-4 my-md-5 pt-md-5 border-top pl-5">
+    <div class="row">
+        <div class="col-12 col-md">
+            <img class="mb-2" src="h.jpg" alt="" width="24" height="24">
+            <small class="d-block mb-3 text-muted">© 2022-2024</small>
+        </div>
+        <div class="col-6 col-md">
+            <h5>Features</h5>
+            <ul class="list-unstyled text-small">
+                <li>User-Friendly site</li>
+                <li>Easy to login</li>
+                <li>Readable and Understandable</li>
+
+            </ul>
+        </div>
+        <div class="col-6 col-md">
+            <h5>Resources</h5>
+            <ul class="list-unstyled text-small">
+                <li>Faciliated</li>
+                <li>Room-Service</li>
+                <li>Free Wi-fi Service</li>
+                <li>Another resource</li>
+                <li>Final resource</li>
+                <li>Washing-Machine</li>
+                <li>Geyser</li>
+            </ul>
+        </div>
+        <div class="col-6 col-md">
+            <h5>About-us</h5>
+            <ul class="list-unstyled text-small">
+                <li><a class="text-muted" href="#">Owner</a></li>
+                <li><a class="text-muted" href="https://www.facebook.com/roshan.khadka.395017/" target="_blank">Co-Owner</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</footer>
+
+<!-- Optional JavaScript -->
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</body>
+</html>
+
