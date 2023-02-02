@@ -78,7 +78,10 @@
                     <tbody>
                     <tr th:each="c : ${contacts}">
                         <th scope="row" th:text="${'CMUSER ' + c.cId}" >1</th>
-                        <td th:text="${c.name}">Roshan</td>
+                        <td>
+                            <img src="" class="my_profile_picture" th:src="@{'/img/'+${c.image}}" alt="Profile Image  " />
+                            <span th:text="${c.name}"></span>
+                        </td>
                         <td th:text="${c.email}">khadkaroshan715@gmail.com</td>
                         <td th:text="${c.phone}">12345678</td>
                         <td>
