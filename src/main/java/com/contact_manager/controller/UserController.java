@@ -139,7 +139,7 @@ public class UserController {
 
 //    Showing particular contact details
     @RequestMapping("/{cId}/contact")
-    public String showContactDetail(@PathVariable("cId") Integer cId, Model model, Principal principal){
+    public String showContactDetail(@PathVariable("cId") Integer cId, Model model){
 
         System.out.println("CID " + cId);
 
@@ -152,9 +152,10 @@ public class UserController {
 
 
 
-        model.addAttribute("contact", contact);
+            model.addAttribute("contact", contact);
 
-        return "normal/contact_details";
+            return "normal/contact_details";
+
     }
 
 }
