@@ -80,13 +80,15 @@ public class HomeController {
 
 //        If all the form is correct so giving success message and make all fields empty
             model.addAttribute("user", new User());
+
+
             //Sir method to give error message
             model.addAttribute("message", "Successfully Register !!");
-//            If you want to return any other page after register then you can return any page
             return "signup";
 
 //            Catch is to throw exception/errors
         }catch (Exception e){
+
             e.printStackTrace();
 //Sir method to give error message
             model.addAttribute("errormessage", "You have not mentioned the terms and conditions  !!");

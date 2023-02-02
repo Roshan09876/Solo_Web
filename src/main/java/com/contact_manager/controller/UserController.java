@@ -176,9 +176,8 @@ public class UserController {
 
         this.contactRepository.delete(contact);
 
-//        session.setAttribute("message", new Message("Contact deleted Successfully", "success"));
+        session.setAttribute("message", new Message("Contact deleted Successfully", "success"));
 
-        model.addAttribute("success" , "Contact Deleted Successfully");
 
         return "redirect:/user/show-contacts";
     }
