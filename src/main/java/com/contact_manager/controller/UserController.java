@@ -118,15 +118,16 @@ public class UserController {
             e.printStackTrace();
 
             //error message
-            session.setAttribute("message", new Message("Something went Wrong...Please fill all the form", "danger" ));
+//            session.setAttribute("message", new Message("Something went Wrong...Please fill all the form", "danger" ));
         }
         return "normal/add_contact_form";
     }
 
 //    Show Contacts Controller
     @GetMapping("/show-contacts")
-    public String showContacts(Model m, Principal principal){
-        m.addAttribute("title","User View Contacts");
+    public String showContacts(Model m,
+                               Principal principal){
+//        m.addAttribute("title","User View Contacts");
         //Sending all contacts in this page
 
         String userName = principal.getName();
@@ -140,7 +141,9 @@ public class UserController {
 
 //    Showing particular contact details
     @RequestMapping("/{cId}/contact")
-    public String showContactDetail(@PathVariable("cId") Integer cId, Model model, Principal principal){
+    public String showContactDetail(@PathVariable("cId") Integer cId,
+                                    Model model,
+                                    Principal principal){
 
         System.out.println("CID " + cId);
 
@@ -160,7 +163,8 @@ public class UserController {
 
     //Delete Contact Handler
     @GetMapping("/delete/{cid}")
-    public String deleteContact(@PathVariable("cid") Integer cId, Model model, HttpSession session){
+    public String deleteContact(@PathVariable("cid") Integer cId,
+                                Model model){
 
         Optional<Contact> contactOptional = this.contactRepository.findById(cId);
 //        Contact contact = contactOptional.get();
@@ -176,7 +180,7 @@ public class UserController {
 
         this.contactRepository.delete(contact);
 
-        session.setAttribute("message", new Message("Contact deleted Successfully", "success"));
+//        session.setAttribute("message", new Message("Contact deleted Successfully", "success"));
 
 
         return "redirect:/user/show-contacts";
@@ -184,7 +188,8 @@ public class UserController {
 
 //    Update Contact Form
     @PostMapping("/update-contact/{cid}")
-    public String updateForm(@PathVariable("cid") Integer cid, Model m){
+    public String updateForm(@PathVariable("cid") Integer cid,
+                             Model m){
 
         m.addAttribute("title", "Update Contact");
 
@@ -192,6 +197,37 @@ public class UserController {
         m.addAttribute("contact", contact);
 
         return "normal/update_form";
+    }
+//    Update contact handler database
+    @RequestMapping(value = "/process-update", method = RequestMethod.POST)
+    public String updateHandler(@ModelAttribute Contact contact,
+                                @RequestParam("profileImage") MultipartFile file,
+                                Model m, HttpSession session,
+                                Principal principal){
+
+        try{
+//            At first fetching Old Contact Details
+            Contact oldcontactDetail = this.contactRepository.findById(contact.getcId()).get();
+
+            if(!file.isEmpty()){
+
+            }
+
+            User user = this.userRepository.getUserByUserName(principal.getName());
+
+            contact.setUser(user);
+
+            this.contactRepository.save(contact);
+
+
+
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+
+        System.out.println("Contact Name " + contact.getName());
+        System.out.println("Contact Name " + contact.getcId());
+        return "";
     }
 
 }
