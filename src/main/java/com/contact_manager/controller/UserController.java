@@ -212,6 +212,11 @@ public class UserController {
             if(!file.isEmpty()){
 
 //                Delete old Photo
+                File deleteFile =  new ClassPathResource("static/img").getFile();
+                File file1 = new File(deleteFile, oldcontactDetail.getImage());
+                file1.delete();
+
+
 
 
 
@@ -236,7 +241,7 @@ public class UserController {
 
             this.contactRepository.save(contact);
 
-            session.setAttribute("message", new Message("Your Contact is Updated" , "success"));
+//            session.setAttribute("message", new Message("Your Contact is Updated" , "success"));
 
 
 
