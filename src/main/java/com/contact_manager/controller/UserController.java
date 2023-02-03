@@ -184,8 +184,10 @@ public class UserController {
 
 //    Update Contact Form
     @PostMapping("/update-contact/{cid}")
-    public String updateForm(){
-        return "update_form";
+    public String updateForm(Model m){
+
+        m.addAttribute("title", "Update Contact");
+        return "normal/update_form";
     }
 
 }

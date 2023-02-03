@@ -90,7 +90,10 @@
                         </td>
                         <td th:text="${c.phone}">12345678</td>
                         <td>
-                            <button class="btn btn-primary btn-sm">Update</button>
+                            <form method="post" th:action="@{'/user/update-contact/' + ${c.cId}}" class="mb-3">
+                                <button type="submit" class="btn btn-primary btn-sm">Update</button>
+                            </form>
+
                             <a href="#" th:href="@{'/user/delete/'+${c.cId}}" class="btn btn-danger btn-sm">Delete</a>
                         </td>
 
