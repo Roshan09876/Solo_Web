@@ -164,7 +164,8 @@ public class UserController {
     //Delete Contact Handler
     @GetMapping("/delete/{cid}")
     public String deleteContact(@PathVariable("cid") Integer cId,
-                                Model model){
+                                Model model,
+                                Principal principal){
 
         Optional<Contact> contactOptional = this.contactRepository.findById(cId);
 //        Contact contact = contactOptional.get();
@@ -172,16 +173,21 @@ public class UserController {
 
         Contact contact = this.contactRepository.findById(cId).get();
 
+        User user = this.userRepository.getUserByUserName(principal.getName());
+
+        user.getContacts().remove(contact);
+        this.userRepository.save(user);
+
 
         //check...
-        System.out.println("Contact "+ contact.getcId());
+//        System.out.println("Contact "+ contact.getcId());
 
-        contact.setUser(null);
 
-        this.contactRepository.delete(contact);
+//        this.contactRepository.delete(contact);
 
+
+        System.out.println("DELETED");
 //        session.setAttribute("message", new Message("Contact deleted Successfully", "success"));
-
 
         return "redirect:/user/show-contacts";
     }

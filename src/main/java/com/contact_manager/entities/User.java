@@ -35,7 +35,8 @@ public class User {
     private String about;
 
     //One user have may Contact So it makes user delete or save al
-    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "user")
+//    fetch = FetchType.LAZY,
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "user", orphanRemoval = true)
     private List<Contact> contacts = new ArrayList<>();
 
     //Generating Constructor

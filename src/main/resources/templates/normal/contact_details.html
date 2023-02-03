@@ -98,7 +98,9 @@
                     </div>
 
                     <div class="container mt-5">
-                        <button class="btn btn-primary btn-sm btn-block">Update</button>
+                        <form method="post" th:action="@{'/user/update-contact/' + ${contact.cId}}" class="mb-3">
+                            <button type="submit" class="btn btn-block btn-primary btn-sm">Update</button>
+                        </form>
                         <a th:href="@{'/user/delete/' + ${contact.cId}}" class="btn btn-danger btn-sm btn-block">Delete</a>
 
                     </div>

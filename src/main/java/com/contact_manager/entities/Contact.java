@@ -100,18 +100,10 @@ public class Contact {
         this.user = user;
     }
 
-//    @Override
-//    public String toString() {
-//        return "Contact{" +
-//                "cId=" + cId +
-//                ", name='" + name + '\'' +
-//                ", secondName='" + secondName + '\'' +
-//                ", work='" + work + '\'' +
-//                ", email='" + email + '\'' +
-//                ", phone='" + phone + '\'' +
-//                ", image='" + image + '\'' +
-//                ", description='" + description + '\'' +
-//                ", user=" + user +
-//                '}';
-//    }
+//    TO Delete Contact from database too
+    @Override
+    public boolean equals(Object obj){
+        return this.cId==((Contact)obj).getcId();
+    }
+
 }
