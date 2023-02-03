@@ -211,6 +211,23 @@ public class UserController {
 
             if(!file.isEmpty()){
 
+//                Delete old Photo
+
+
+
+
+//                Update new Photo
+                File saveFile =  new ClassPathResource("static/img").getFile();
+
+                Path path = Paths.get(saveFile.getAbsolutePath() + File.separator+file.getOriginalFilename());
+
+                Files.copy(file.getInputStream(), path, StandardCopyOption.REPLACE_EXISTING);
+
+                contact.setImage(file.getOriginalFilename());
+
+            }else{
+//                If file is empty then inserting old contactDetails in new one
+                contact.setImage(oldcontactDetail.getImage());
             }
 
             User user = this.userRepository.getUserByUserName(principal.getName());
@@ -218,6 +235,8 @@ public class UserController {
             contact.setUser(user);
 
             this.contactRepository.save(contact);
+
+            session.setAttribute("message", new Message("Your Contact is Updated" , "success"));
 
 
 
@@ -227,7 +246,7 @@ public class UserController {
 
         System.out.println("Contact Name " + contact.getName());
         System.out.println("Contact Name " + contact.getcId());
-        return "";
+        return "redirect:/user/"+contact.getcId()+"/contact";
     }
 
 }
