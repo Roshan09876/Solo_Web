@@ -182,4 +182,10 @@ public class UserController {
         return "redirect:/user/show-contacts";
     }
 
+//    Update Contact Form
+    @PostMapping("/update-contact/{cid}")
+    public String updateForm(){
+        return "update_form";
+    }
+
 }
