@@ -91,8 +91,9 @@
                         <td th:text="${c.phone}">12345678</td>
                         <td>
                             <button class="btn btn-primary btn-sm">Update</button>
-                            <a th:href="@{'/user/delete/'+${c.cId}}" class="btn btn-danger btn-sm">Delete</a>
+                            <a href="#" th:href="@{'/user/delete/'+${c.cId}}" class="btn btn-danger btn-sm">Delete</a>
                         </td>
+
                     </tr>
                     </tbody>
                 </table>

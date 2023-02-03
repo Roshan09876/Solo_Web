@@ -34,11 +34,6 @@ public class MyConfig  {
         return daoAuthenticationProvider;
     }
 
-    //Configure Method
-//    @Bean
-//    protected void Configure(AuthenticationManagerBuilder auth) throws Exception{
-//        auth.authenticationProvider(authenticationProvider());
-//    }
 
 
     @Bean
