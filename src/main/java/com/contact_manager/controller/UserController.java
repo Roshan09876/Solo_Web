@@ -302,11 +302,11 @@ public class UserController {
             currentUser.setPassword(this.bCryptPasswordEncoder.encode(newPassword));
             this.userRepository.save(currentUser);
 
-            session.setAttribute("message", new Message("Your Password is Successfully Changed..", "success"));
+            session.setAttribute("password", new Message("Your Password is Successfully Changed..", "success"));
 
         }else{
 //            Error
-            session.setAttribute("message", new Message("Please enter your Correct Old Password...", "danger"));
+            session.setAttribute("error", new Message("Please enter your Correct Old Password...", "danger"));
             return "redirect:/user/settings";
         }
 
