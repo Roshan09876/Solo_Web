@@ -8,6 +8,7 @@ import com.contact_manager.helper.Message;
 import jakarta.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.ClassPathResource;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -26,6 +27,10 @@ import java.util.Optional;
 @Controller
 @RequestMapping("/user")
 public class UserController {
+
+//    To check the old Becrypt Password for changing password
+    @Autowired
+    private BCryptPasswordEncoder bCryptPasswordEncoder;
 
     @Autowired
     private UserRepository userRepository;
@@ -280,10 +285,24 @@ public class UserController {
 
 //    Change Password Handler
     @PostMapping("/change-password")
-    public String changepassword(@RequestParam("oldPassword") String oldPassword, @RequestParam("newPassword") String newPassword){
+    public String changepassword(@RequestParam("oldPassword") String oldPassword, @RequestParam("newPassword") String newPassword, Principal principal){
 
         System.out.println("OLD PASSWORD " + oldPassword);
         System.out.println("NEW PASSWORD " + newPassword);
-        return "normal/user_dashboard";
+
+        String userName = principal.getName();
+        User currentUser = this.userRepository.getUserByUserName(userName);
+        System.out.println(currentUser.getPassword());
+
+        if(this.bCryptPasswordEncoder.matches(oldPassword, currentUser.getPassword())){
+//            Then Change Password
+            currentUser.setPassword(this.bCryptPasswordEncoder.encode(newPassword));
+            this.userRepository.save(currentUser);
+
+        }else{
+//            Error
+        }
+
+        return "redirect:/user/index";
     }
 }
