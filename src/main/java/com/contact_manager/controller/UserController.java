@@ -270,11 +270,17 @@ public class UserController {
     }
 
 
-    //Change password
+    //Open Settings Page
     @GetMapping("/settings")
     public String openSettings(Model model){
 
         model.addAttribute("title", "Your Settings");
         return "normal/settings";
+    }
+
+//    Change Password Handler
+    @PostMapping("/change-password")
+    public String changepassword(){
+        return "normal/user_dashboard";
     }
 }
