@@ -269,4 +269,12 @@ public class UserController {
         return "normal/profile";
     }
 
+
+    //Change password
+    @GetMapping("/settings")
+    public String openSettings(Model model){
+
+        model.addAttribute("title", "Your Settings");
+        return "normal/settings";
+    }
 }
