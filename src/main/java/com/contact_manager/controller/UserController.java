@@ -280,7 +280,10 @@ public class UserController {
 
 //    Change Password Handler
     @PostMapping("/change-password")
-    public String changepassword(){
+    public String changepassword(@RequestParam("oldPassword") String oldPassword, @RequestParam("newPassword") String newPassword){
+
+        System.out.println("OLD PASSWORD " + oldPassword);
+        System.out.println("NEW PASSWORD " + newPassword);
         return "normal/user_dashboard";
     }
 }
