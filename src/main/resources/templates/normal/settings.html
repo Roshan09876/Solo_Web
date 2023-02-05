@@ -48,7 +48,7 @@
     <a href="" th:href="@{/user/add-contact}" class="item"><i class="fas fa-pencil-alt"></i>Add Contact</a>
     <a href="" th:href="@{/user/profile}" class="item"><i class="fas fa-user-circle"></i>Your Profile</a>
     <a href="" class="item"><i class="fas fa-cogs"></i>Settings</a>
-    <a href="" class="item"><i class="fas fa-sign-out-alt"></i>Logout</a>
+    <a href="" th:href="@{/logout}" class="item"><i class="fas fa-sign-out-alt"></i>Logout</a>
     <div class="divider"></div>
 
 </div>
@@ -62,14 +62,9 @@
     <section>
 
         <div class="container">
-
             <div class="row">
-
                 <div class="col-md-12">
-
                     <div class="card">
-
-
                         <div th:if="${session.error}" class="container">
                             <div th:classappend="${'alert ' + session.error.type }" class="alert alert-danger alert-dismissible fade show" role="alert">
                                 <span th:text="${session.error.content}" ></span>
@@ -99,29 +94,15 @@
                                 </div>
 
                                  <div class="text-center">
-
                                      <button type="submit" class="btn btn-primary">Change Password</button>
                                      <button type="reset" class="btn btn-danger">Reset</button>
-
                                  </div>
-
-
                             </form>
-
-
                         </div>
-
-
                     </div>
-
                 </div>
-
-
             </div>
-
-
         </div>
-
     </section>
 </div>
 <!--content End-->
