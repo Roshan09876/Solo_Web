@@ -272,7 +272,7 @@ public class UserController {
 //    Profile Handler
     @GetMapping("/profile")
     public String yourProfile(Model model, Principal principal){
-
+    
 
         User existing = userRepository.getUserByUserName(principal.getName());
         User user1 = new User();
