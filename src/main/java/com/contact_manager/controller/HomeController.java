@@ -5,6 +5,8 @@ import com.contact_manager.entities.User;
 import com.contact_manager.helper.Message;
 import jakarta.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -50,7 +52,10 @@ public class HomeController {
     //handler for registering user
 //    HttpSession session   -- Use to give message for errors
     @PostMapping(value = "/do_register")
-    public String registerUser(@Valid @ModelAttribute("user") User user,BindingResult result1, @RequestParam(value = "agreement", defaultValue = "false")boolean agreement, Model model, HttpSession session){
+    public String registerUser(@Valid @ModelAttribute("user") User user,
+                               BindingResult result1,
+                               @RequestParam(value = "agreement",
+                                       defaultValue = "false")boolean agreement, Model model, HttpSession session){
 
 
         try {

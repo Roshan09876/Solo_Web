@@ -8,6 +8,8 @@ import com.contact_manager.helper.Message;
 import jakarta.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.ClassPathResource;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -269,9 +271,19 @@ public class UserController {
 
 //    Profile Handler
     @GetMapping("/profile")
-    public String yourProfile(Model model){
+    public String yourProfile(Model model, Principal principal){
 
-        model.addAttribute("title", "Profile Page");
+
+        User existing = userRepository.getUserByUserName(principal.getName());
+        User user1 = new User();
+        user1.setName(existing.getName());
+        user1.setEmail(existing.getEmail());
+        user1.setRole(existing.getRole());
+        user1.setAbout(existing.getAbout());
+        user1.setContacts(existing.getContacts());
+        System.out.println(existing);
+
+        model.addAttribute("user", user1);
         return "normal/profile";
     }
 
