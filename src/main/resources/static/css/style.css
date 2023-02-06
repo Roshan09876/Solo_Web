@@ -1,5 +1,5 @@
 body{
-    background: #e2e2e2!important;
+    background: #dfe9f5;!important;
 }
 
 .banner{
@@ -24,7 +24,11 @@ body{
 .my-card{
     padding: 20px;
     background: #FFFFFF;
-    border-radius: 7px;
+    border-radius: 10px;
+}
+.card-body{
+    box-shadow: 0 43px 34px rgb(70 42 205 / 10%);
+    border-radius: 8px;
 }
 #login .container #login-row #login-column #login-box {
     margin-top: 120px;
@@ -71,20 +75,26 @@ body{
     position: fixed;
     padding-top: 25px;
     z-index: 99999999;
-
+    /*border: 10px solid #45f3ff;*/
+    border: 12px solid #343a40;
+    border-right: none;
+    border-top-right-radius: 20px;
+    border-bottom-left-radius: 20px;
 }
 
 .sidebar a{
 
     display: block;
     width: 100%;
-    padding: 10px 25px;
+    padding: 20px 25px;
     text-decoration: none;
-    color: gray;
+    color: black;
+    /*color: #dfe9f5;*/
 }
 
 .sidebar a:hover{
-    background: #e2e2e2;
+    background: #dfe9f5;
+    /*background: #e2e2e2;*/
 }
 .sidebar .divider{
     height: .5px;
