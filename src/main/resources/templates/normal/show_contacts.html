@@ -56,10 +56,10 @@
     <!--    Js for sidebar to open and close-->
     <i onclick="toggleSidebar()" class="fas fa-bars m-3"></i>
     <section>
-        <div class="card mr-5 ml-5">
+<!--        <div class="card mr-5 ml-5">-->
 
-            <div class="card-body">
-                <div class="card-body">
+<!--            <div class="card-body mr-5 ml-5">-->
+                <div class="card-body mr-5 ml-5">
 <!--                    <div th:if="${session.contact_delete}" class="container mt-3">-->
 <!--                        <div th:classappend="${'alert ' + session.contact_delete.type }" class="alert alert-success alert-dismissible fade show" role="alert">-->
 <!--                            <span th:text="${session.contact_delete.content}" ></span>-->
@@ -101,9 +101,10 @@
                         <td>
                             <form method="post" th:action="@{'/user/update-contact/' + ${c.cId}}" class="mb-3">
                                 <button type="submit" class="btn btn-primary btn-sm">Update</button>
+                                <a href="#" th:href="@{'/user/delete/'+${c.cId}}" class="btn btn-danger btn-sm">Delete</a>
                             </form>
 
-                            <a href="#" th:href="@{'/user/delete/'+${c.cId}}" class="btn btn-danger btn-sm">Delete</a>
+
                         </td>
 
                     </tr>
@@ -112,7 +113,7 @@
 
             </div>
 
-        </div>
+
     </section>
 </div>
 <!--content End-->

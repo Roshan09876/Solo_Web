@@ -27,8 +27,11 @@ body{
     border-radius: 10px;
 }
 .card-body{
+    padding: 20px;
     box-shadow: 0 43px 34px rgb(70 42 205 / 10%);
     border-radius: 8px;
+    background: #FFFFFF;
+
 }
 #login .container #login-row #login-column #login-box {
     margin-top: 120px;
