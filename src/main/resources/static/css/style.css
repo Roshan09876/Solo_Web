@@ -72,17 +72,17 @@ body{
 
 
 .sidebar{
-    width: 18%;
-    background: white;
+    width: 17%;
     height: 100%;
     position: fixed;
     padding-top: 25px;
     z-index: 99999999;
-    /*border: 10px solid #45f3ff;*/
-    border: 12px solid #343a40;
-    border-right: none;
+    /*border: 12px solid whitesmoke;*/
+    /*border-right: none;*/
     border-top-right-radius: 20px;
     border-bottom-left-radius: 20px;
+    background: rgb(44,44,44);
+    box-shadow: 0 20px 35px rgba(0,0,0,0.1);
 }
 
 .sidebar a{
@@ -91,18 +91,16 @@ body{
     width: 100%;
     padding: 20px 25px;
     text-decoration: none;
-    color: black;
-    /*color: #dfe9f5;*/
+    color: rgb(221,217,217);
 }
 
 .sidebar a:hover{
-    background: #dfe9f5;
-    /*background: #e2e2e2;*/
+    background: #585858;
 }
 .sidebar .divider{
     height: .5px;
     width: 100%;
-    background: #e2e2e2;
+    color: rgb(221,217,217);
     margin-top: 10px;
 }
 
@@ -116,6 +114,7 @@ body{
     right: 35px;
     font-size: 38px;
     cursor: pointer;
+    color: rgb(221,217,217);
 }
 
 .my_profile_picture{
@@ -123,4 +122,14 @@ body{
     width: 35px;
     object-fit: cover;
     border-radius: 50%;
+}
+
+.navbar{
+    background: rgb(44,44,44);
+    box-shadow: 0 20px 35px rgba(0,0,0,0.1);
+}
+
+.btn1{
+    background-color: #4e73df;
+    background-image: linear-gradient(180deg,#587adc 10%,#203e8b 100%);
 }
