@@ -1,5 +1,3 @@
-console.log("This is js file");
-
 
 const toggleSidebar = () => {
     const sidebar = document.querySelector(".sidebar");
