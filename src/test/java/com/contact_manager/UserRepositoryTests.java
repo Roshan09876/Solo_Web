@@ -1,7 +1,7 @@
 package com.contact_manager;
 
 
-import com.contact_manager.dao.UserRepository;
+import com.contact_manager.repo.UserRepository;
 import com.contact_manager.entities.User;
 //import org.junit.jupiter.api.Assertions;
 import org.assertj.core.api.Assertions;

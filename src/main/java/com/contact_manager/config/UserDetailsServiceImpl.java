@@ -1,6 +1,6 @@
 package com.contact_manager.config;
 
-import com.contact_manager.dao.UserRepository;
+import com.contact_manager.repo.UserRepository;
 import com.contact_manager.entities.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;

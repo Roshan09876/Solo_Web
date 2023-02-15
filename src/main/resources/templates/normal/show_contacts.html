@@ -69,54 +69,50 @@
 
                 <h1 class="text-center">Your Contacts</h1>
 
-                    <div class="card-body">
-                        <div class="table-responsive">
 
-                            <table class="table mt-4" id="myTable">
-                                <thead>
-                                <tr>
-                                    <th scope="col">#ID</th>
-                                    <th scope="col">Name</th>
-                                    <th scope="col">Email</th>
-                                    <th scope="col">Phone</th>
-                                    <th scope="col">Action</th>
-                                </tr>
-                                </thead>
-                                <tbody>
-                                <tr th:each="c : ${contacts}">
-                                    <th scope="row" th:text="${'CM-User ' + c.cId}" >1</th>
-                                    <td>
-                                        <img src="" class="my_profile_picture" th:src="@{'/img/'+${c.image}}" alt="Profile Image  "/>
-                                        <span th:text="${c.name}"></span>
-                                    </td>
-                                    <td>
-                                        <a href="#" th:href="@{'/user/'+${c.cId}+'/contact'}" >
+                    <div class="table-responsive">
+
+                        <table class="table table-hover mt-4" id="myTable">
+                            <thead class="thead-dark">
+                            <tr>
+                                <th scope="col">#ID</th>
+                                <th scope="col">Name</th>
+                                <th scope="col">Email</th>
+                                <th scope="col">Phone</th>
+                                <th scope="col">Action</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr th:each="c : ${contacts}">
+                                <th scope="row" th:text="${'CM-User ' + c.cId}" >1</th>
+                                <td>
+                                    <img src="" class="my_profile_picture" th:src="@{'/img/'+${c.image}}" alt="Profile Image  "/>
+                                    <span th:text="${c.name}"></span>
+                                </td>
+                                <td>
+                                    <a href="#" th:href="@{'/user/'+${c.cId}+'/contact'}" >
 
                                 <span th:text="${c.email}">
 
                                 </span>
 
-                                        </a>
-                                    </td>
-                                    <td th:text="${c.phone}">12345678</td>
-                                    <td>
-                                        <form method="post" th:action="@{'/user/update-contact/' + ${c.cId}}" class="mb-3">
-                                            <button type="submit" class="btn1 btn-primary btn-sm">Update</button>
-                                            <a href="#" th:href="@{'/user/delete/'+${c.cId}}" class="btn btn-danger btn-sm">Delete</a>
-                                        </form>
+                                    </a>
+                                </td>
+                                <td th:text="${c.phone}">12345678</td>
+                                <td>
+                                    <form method="post" th:action="@{'/user/update-contact/' + ${c.cId}}" class="mb-3">
+                                        <button type="submit" class="btn1 btn-primary btn-sm">Update</button>
+                                        <a href="#" th:href="@{'/user/delete/'+${c.cId}}" class="btn btn-danger btn-sm">Delete</a>
+                                    </form>
 
 
-                                    </td>
+                                </td>
 
-                                </tr>
-                                </tbody>
-                            </table>
-
-                        </div>
+                            </tr>
+                            </tbody>
+                        </table>
 
                     </div>
-
-
 
 
 
@@ -154,6 +150,12 @@
 
 <!--Use For JQuery tables-->
 
-
+<script src="//cdn.datatables.net/1.13.1/js/jquery.dataTables.min.js"></script>
+<script>
+    //JQuery Table
+    $(document).ready( function () {
+        $('#myTable').DataTable();
+    } );
+</script>
 </body>
 </html>

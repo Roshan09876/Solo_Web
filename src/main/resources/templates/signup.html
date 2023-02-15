@@ -139,7 +139,7 @@
 <footer class="pt-4 my-md-5 pt-md-5 border-top pl-5">
     <div class="row">
         <div class="col-12 col-md">
-            <img class="mb-2" src="h.jpg" alt="" width="24" height="24">
+            <img class="mb-2" src="h.jpg" th:src="@{~/img/h.png}" alt="" width="24" height="24">
             <small class="d-block mb-3 text-muted">© 2022-2024</small>
         </div>
         <div class="col-6 col-md">
@@ -184,69 +184,4 @@
 
 
 
-<!--<section class="Roshan">-->
-<!--    <div class="container">-->
-<!--        <div class="row">-->
-<!--&lt;!&ndash;            Shifting grid by using offset&ndash;&gt;-->
-<!--            <div class="col-md-8 offset-md-2">-->
-<!--&lt;!&ndash;                For Styling  purpose&ndash;&gt;-->
-<!--                <div class="my-card mt-2">-->
-<!--                    <div th:if="${message}" class="alert alert-primary" role="alert">-->
-<!--                        <p class="text-center" th:text="${message}"></p>-->
-<!--&lt;!&ndash;                        <th:block th:text="${#session.removeAttribute('message')}" ></th:block>&ndash;&gt;-->
-<!--                    </div>-->
-<!--                    <div th:if="${errormessage}" class="alert alert-danger" role="alert">-->
-<!--                        <p class="text-center" th:text="${errormessage}"></p>-->
-<!--&lt;!&ndash;                        <th:block th:text="${#session.removeAttribute('message')}" ></th:block>&ndash;&gt;-->
-<!--                    </div>-->
-<!--                    <div class="container text-center">-->
-<!--                        <img class="" style="width: 70px" src=""th:src="@{/img/register.png}" alt="" />-->
-
-<!--                    </div>-->
-<!--                    <h1 class="text-center">Register Here!!</h1>-->
-<!--&lt;!&ndash;                    Since user is variable so keeping it with dollar symbol&ndash;&gt;-->
-<!--                    <form novalidate action="" th:action="@{/do_register}" method="post" th:object="${user}">-->
-
-<!--&lt;!&ndash;                        Form/name Field&ndash;&gt;-->
-<!--                        <div class="form-group">-->
-<!--                            <label for="name_field">Your Name</label>-->
-<!--                            <input  type="text" name="name" class="form-control"id="name_field"  placeholder="Enter you name" required th:value="${user.name}">-->
-<!--                            <div th:if="${result1}"class="alert alert-danger" role="alert">-->
-<!--                                <p th:text="*{result1}"></p>-->
-<!--                            </div>-->
-<!--                        </div>-->
-<!--&lt;!&ndash;For name form to pass invalid&ndash;&gt;-->
-
-
-<!--&lt;!&ndash;                        For email Field&ndash;&gt;-->
-<!--                        <div class="form-group">-->
-<!--                            <label for="email_field">Email address</label>-->
-<!--                            <input type="email" name="email" class="form-control" id="email_field" aria-describedby="emailHelp" placeholder="Enter email" required th:value="${user.email}">-->
-<!--                            <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>-->
-<!--                        </div>-->
-<!--                        <div class="form-group">-->
-<!--                            <label for="password_field">Your Password</label>-->
-<!--                            <input name="password" type="password" class="form-control" id="password_field" aria-describedby="emailHelp" placeholder="Enter your password" required>-->
-<!--                        </div>-->
-
-<!--&lt;!&ndash;                        About Field&ndash;&gt;-->
-<!--                        <div class="form-group">-->
-<!--                            <textarea name="about" th:value="${user.about}" placeholder="Enter Something about Yourself" rows="7" class="form-control"></textarea>-->
-<!--                        </div>-->
-<!--&lt;!&ndash;                        Terms and Condition agreement&ndash;&gt;-->
-<!--                        <div class="form-group form-check text-center">-->
-<!--                            <input type="checkbox" name="agreement" class="form-check-input" id="agreement"/>-->
-<!--                            <label for="agreement">Accept terms and conditions</label>-->
-<!--                        </div>-->
-
-<!--                        <div class="button">-->
-<!--                            <button type="submit" class="btn bg-primary text-white">Submit</button>-->
-<!--                            <button type="reset" class="btn btn-warning text-white">Reset</button>-->
-<!--                        </div>-->
-<!--                        </form>-->
-<!--                </div>-->
-<!--            </div>-->
-<!--        </div>-->
-<!--    </div>-->
-<!--</section>-->
 

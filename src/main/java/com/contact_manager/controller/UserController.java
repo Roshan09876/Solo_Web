@@ -1,22 +1,19 @@
 package com.contact_manager.controller;
 
-import com.contact_manager.dao.ContactRepository;
-import com.contact_manager.dao.UserRepository;
+import com.contact_manager.repo.ContactRepository;
+import com.contact_manager.repo.UserRepository;
 import com.contact_manager.entities.Contact;
 import com.contact_manager.entities.User;
 import com.contact_manager.helper.Message;
 import jakarta.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.ClassPathResource;
-import org.springframework.security.core.Authentication;
-import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
-import javax.validation.constraints.NotNull;
 import java.io.File;
 import java.nio.file.Files;
 import java.nio.file.Path;

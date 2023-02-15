@@ -1,12 +1,9 @@
 package com.contact_manager.controller;
 
-import com.contact_manager.dao.UserRepository;
+import com.contact_manager.repo.UserRepository;
 import com.contact_manager.entities.User;
-import com.contact_manager.helper.Message;
 import jakarta.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.Authentication;
-import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -16,7 +13,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import javax.naming.Binding;
 import javax.validation.Valid;
 
 @Controller

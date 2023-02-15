@@ -7,7 +7,6 @@ import jakarta.validation.constraints.Size;
 import java.util.ArrayList;
 import java.util.List;
 
-
 @Entity
 @Table(name = "USER")
 public class User {
